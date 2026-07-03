@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | CemilFeels - The Snack Pharmacy</title>
+    <!-- Tambahan Bootstrap 5 CSS untuk fungsionalitas Navbar -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+       
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #fdfbf7;
+            color: #4a3f35;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        
+        .navbar {
+            background-color: #ffffff;
+            border-bottom: 1px solid #eaeaea;
+            padding: 12px 0;
+        }
+
+        .navbar-nav .nav-link {
+            color: #5d4037 !important;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 8px 16px !important;
+            transition: color 0.2s ease;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-item.active .nav-link {
+            color: #e64a19 !important;
+        }
+
+        /* Tombol Login Semi-Formal Bergradasi */
+        .btn-gradient {
+            background: linear-gradient(135deg, #ff9800 0%, #e65100 100%);
+            color: white !important;
+            padding: 8px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: inline-block;
+            transition: opacity 0.2s, transform 0.2s;
+            text-align: center;
+        }
+
+        .btn-gradient:hover {
+            opacity: 0.95;
+            transform: translateY(-1px);
+            color: white !important;
+        }
+
+        /* Container Utama */
+        .container-content {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 70px 20px;
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border-radius: 20px;
+            margin-top: 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.3rem;
+            color: #d84315;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #5d4037;
+        }
+
+        /* Story Section - Tata Letak Grid */
+        .story-section {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 50px;
+            align-items: center;
+            margin: 60px 0;
+        }
+
+        @media (max-width: 768px) {
+            .story-section {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        .story-content h2 {
+            font-size: 1.8rem;
+            color: #e64a19;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .story-content p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+            text-align: justify;
+            color: #4a3f35;
+        }
+
+        /* Kotak Visual Interaktif dengan Logo CEMILAJA.jpg */
+        .story-visual {
+            background-color: #fff;
+            border: 1px solid #ffe0b2;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+
+        .logo-awal {
+            max-width: 100%;
+            height: auto;
+            max-height: 180px;
+            object-fit: contain;
+            margin-bottom: 20px;
+            border-radius: 12px;
+        }
+
+        .mood-badge {
+            display: inline-block;
+            background-color: #ffe0b2;
+            color: #e64a19;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-weight: bold;
+            margin: 4px;
+            font-size: 0.85rem;
+            transition: transform 0.3s ease;
+        }
+        .mood-badge:hover {
+            transform: translateY(-3px);
+
+        }
+
+        /* Mission Section */
+        .mission-section {
+            background-color: #fff;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(216, 67, 21, 0.03);
+            border: 1px solid #eaeaea;
+            margin: 60px 0;
+        }
+
+        .mission-section h2 {
+            text-align: center;
+            color: #d84315;
+            margin-bottom: 40px;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .mission-card {
+            padding: 25px;
+            border-radius: 12px;
+            background-color: #fdfbf7;
+            border-top: 4px solid #ffb74d;
+            transition: transform 0.3s ease;
+        }
+
+        .mission-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .mission-card h3 {
+            color: #e64a19;
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* Team Section */
+        .team-section {
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        .team-section h2 {
+            font-size: 1.8rem;
+            color: #d84315;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .team-subtitle {
+            margin-bottom: 40px;
+            font-size: 1.05rem;
+            color: #795548;
+        }
+
+        .team-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .team-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 16px;
+            width: 250px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            border: 1px solid #ffe0b2;
+           transition: transform 0.3s ease;
+        }
+        .team-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .team-avatar {
+            width: 90px;
+            height: 90px;
+            background-color: #ffe0b2;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+        }
+
+        .team-card h3 {
+            font-size: 1.15rem;
+            color: #4a3f35;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .team-card p {
+            font-size: 0.9rem;
+            color: #e64a19;
+            font-weight: 600;
+        }
+
+        /* Tech Footer Note */
+        .tech-note {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #a1887f;
+            margin-top: 40px;
+            border-top: 1px solid #ffe0b2;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar Sticky ala QRoom dengan File logotulisan.jpg -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <!-- Penyisipan Logo Alamat Web -->
+                <img src="CEMILAJA.png" alt="CemilFeels" class="img-fluid" style="width: auto; height: 50px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#how-it-works">Bagian Tampilan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#benefits">Alur kerja web</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#about-us">About Us</a>
+                    </li>
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <a class="btn-gradient" href="#login">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Wrapper Konten Utama -->
+    <div class="container-content">
+        
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Bukan Sekadar Camilan, Ini Resep Kebahagiaanmu.</h1>
+            <p>Di CemilFeels, kami percaya bahwa setiap mood punya rasanya sendiri, dan setiap rasa lelah punya penawarnya.</p>
+        </section>
+
+        <!-- Story Section -->
+        <section id="about-us" class="story-section">
+            <div class="story-content">
+                <h2>Tentang Kami</h2>
+                <p>CemilFeels (MoodMunch) lahir dari sebuah ide sederhana di bangku kuliah: <strong>Kenapa makanan ringan tidak bisa jadi solusi untuk memperbaiki hari yang berat?</strong></p>
+                <p>Kita semua pasti pernah merasa stres karena tugas, bosan dengan rutinitas, atau sekadar butuh mood booster di tengah hari. Seringkali, kita lari ke camilan. Namun, mencari camilan yang tepat untuk validasi perasaan kita tidak selalu mudah.</p>
+                <p>Itulah mengapa kami menciptakan <strong>"The Snack Pharmacy"</strong>. Kami menggabungkan pendekatan psikologi mood sederhana dengan kurasi camilan yang tepat. Kami tidak hanya menjual makanan, kami memberikan "resep" kenyamanan untuk setiap emosi yang sedang kamu rasakan.</p>
+            </div>
+            
+            <!-- Sisi Kanan: Ruang Interaktif Terintegrasi dengan Gambar CEMILAJA.jpg -->
+            <div class="story-visual">
+                <!-- Penyisipan Logo Awal Proyek -->
+                <img src="logotulisan.png" alt="CemilFeels Mascot" class="logo-awal">
+                
+                <p style="margin-bottom: 12px; font-weight: bold; color: #795548; font-size: 0.95rem;">Pilih Mood Kamu Hari Ini:</p>
+                <span class="mood-badge">😢 Sedih</span>
+                <span class="mood-badge">😴 Badmood</span>
+                <span class="mood-badge">😡 Marah</span>
+                <span class="mood-badge">🥰 Bahagia</span>
+                <p style="margin-top: 15px; font-size: 0.85rem; color: #8d6e63; font-style: italic;">Sistem kami meracik snack secara real-time.</p>
+            </div>
+        </section>
+
+        <!-- Mission Section -->
+        <section class="mission-section">
+            <h2>Misi Kami</h2>
+            <div class="mission-grid">
+                <div class="mission-card">
+                    <h3>Validasi Emosi</h3>
+                    <p>Menjadi ruang aman digital di mana kamu bisa mengekspresikan apa yang kamu rasakan tanpa takut dihakimi.</p>
+                </div>
+                <div class="mission-card">
+                    <h3>Solusi Cerdas & Cepat</h3>
+                    <p>Memanfaatkan teknologi web modern yang cepat dan interaktif untuk memberikan rekomendasi camilan terbaik secara real-time.</p>
+                </div>
+                <div class="mission-card">
+                    <h3>Menyebarkan Senyuman</h3>
+                    <p>Memastikan setiap paket camilan yang sampai ke tanganmu mampu mengubah bad day menjadi jauh lebih baik.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="team-section">
+            <h2>Di Balik Layar CemilFeels</h2>
+            <p class="team-subtitle">Kami adalah tim yang berkolaborasi untuk menyatukan teknologi, kreativitas, dan empati.</p>
+            
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">👩‍💻</div>
+                    <h3>Setia Arini</h3>
+                    <p>Project Leader & Analyst</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">🧑‍💻</div>
+                    <h3>Anggota Tim 2</h3>
+                    <p>Front-End Developer</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">🎨</div>
+                    <h3>Anggota Tim 3</h3>
+                    <p>UI/UX Designer</p>
+                </div>
+                 <div class="team-card">
+                    <div class="team-avatar">🎨</div>
+                    <h3>Anggota Tim 3</h3>
+                    <p>UI/UX Designer</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Footer Note -->
+        <footer class="tech-note">
+            <p>© 2026 CemilFeels Team Project</p>
+        </footer>
+
+    </div>
+
+    <!-- Tambahan Bootstrap 5 JS Bundle agar hamburger menu berfungsi di HP -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
